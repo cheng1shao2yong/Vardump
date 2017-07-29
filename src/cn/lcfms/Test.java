@@ -1,9 +1,8 @@
-package test;
+package cn.lcfms;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import cn.lcfms.Vardump;
 
 class Bean{
@@ -36,10 +35,10 @@ class Bean{
 	}
 	
 }
-class Test{
+class T{
 	int i;
 	char c;
-	Test(int i,char c){
+	T(int i,char c){
 		this.i=i;
 		this.c=c;
 	}
@@ -56,7 +55,7 @@ class Test{
 		this.c = c;
 	}	
 }
-public class T{	
+public class Test{	
      public static void main(String[] args) throws Exception{ 
     	/* 
     	int[][][] iarr={
@@ -90,8 +89,8 @@ public class T{
     	Bean bean=new Bean(1, strings,list);
     	//Vardump.print(bean);
     	
-    	Test t1=new Test(123,'a');
-    	Test t2=new Test(666,'b');
+    	T t1=new T(123,'a');
+    	T t2=new T(666,'b');
     	List<Object> list1=new ArrayList<Object>();
     	list1.add(123);
     	list1.add(t1);

@@ -10,10 +10,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
+/*
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
+*/
 
 /**
  * 打印基本数据类型与普通可以直接显示的类型
@@ -49,7 +50,8 @@ class Basic{
 			"(bigdecimal)",
 			"(biginteger)"
 	};
-	
+		
+	@SuppressWarnings("hiding")
 	public static<T> void print(T t){
 		if(t==null){
 			append("null");
@@ -75,7 +77,7 @@ class Basic{
 		}		
 		show();
 	}
-	
+	@SuppressWarnings("hiding")
 	protected static<T> void print(String before,T t,String after){
 		if(t==null){
 			append(before+"null"+after);
@@ -154,6 +156,7 @@ class Basic{
  * @author 老成
  */
 class Array extends Basic{	
+	@SuppressWarnings("hiding")
 	public static<T> void print(T t){
 		if(t.getClass().isArray()){
 			Array.print(t,0);
@@ -162,6 +165,7 @@ class Array extends Basic{
 		}
 		Basic.print(t);	
 	}
+	@SuppressWarnings("hiding")
 	protected static<T> void print(T t,int id){
 		if(t==null){
 			Basic.print("["+id+"]=>",null,"");
@@ -306,7 +310,7 @@ class Array extends Basic{
  * @author 老成
  */
 class Coll extends Array{
-	
+	@SuppressWarnings("hiding")
 	public static <T> void print(Collection<T> coll){
 		String type=coll.getClass().getTypeName();
 		type=type.substring(type.lastIndexOf(".")+1);
@@ -396,7 +400,7 @@ class Coll extends Array{
 		printCollAfter();
 		show();
 	}
-	
+	@SuppressWarnings("hiding")
 	public static <T> void print(Enumeration<T> en){
 		String type=en.getClass().getTypeName();
 		type=type.substring(type.lastIndexOf(".")+1);
@@ -448,7 +452,7 @@ class Coll extends Array{
 		printCollAfter();
 		show();
 	}
-	
+	@SuppressWarnings("hiding")
 	protected static<T> void print(String before,T t,String after){
 		if(t==null){
 			append(before+"null"+after);
@@ -513,10 +517,11 @@ class Coll extends Array{
 }
 
 /**
- * servlet扩展类
+ * servlet扩展类,将注释部分打开可用
  * @author 老成
  */
-public class Vardump extends Coll{	
+public class Vardump extends Coll{
+	/*
 	public static void print(HttpServletRequest request){
 		print(request.getParameterMap());
 		print(request.getCookies());
@@ -546,5 +551,6 @@ public class Vardump extends Coll{
 		Basic.stack.pop();
 		append(")");
 	}
+	*/
 }
 
